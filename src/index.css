@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-void: #030712;
+  --color-midnight: #0a0f1e;
+  --color-navy: #111827;
+  --color-glass: rgb(255 255 255 / 0.06);
+  --color-glass-border: rgb(255 255 255 / 0.12);
+  --color-accent: #22d3ee;
+  --color-accent2: #a78bfa;
+  --color-safe: #34d399;
+  --color-warn: #fbbf24;
+  --color-danger: #fb7185;
+
+  --shadow-glow: 0 0 80px rgb(34 211 238 / 0.15);
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+    font-family: var(--font-sans);
+    color: rgb(248 250 252);
+    background-color: var(--color-void);
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgb(34 211 238 / 0.12), transparent 55%),
+      radial-gradient(ellipse 80% 50% at 100% 0%, rgb(167 139 250 / 0.08), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgb(52 211 153 / 0.06), transparent 45%),
+      linear-gradient(180deg, #030712 0%, #0b1224 40%, #030712 100%);
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.08) 0%,
+      rgb(255 255 255 / 0.02) 100%
+    );
+    border: 1px solid rgb(255 255 255 / 0.1);
+    box-shadow:
+      0 8px 32px rgb(0 0 0 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-strong {
+    background: linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.12) 0%,
+      rgb(255 255 255 / 0.04) 100%
+    );
+    border: 1px solid rgb(255 255 255 / 0.14);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(120deg, #e0f2fe 0%, #22d3ee 35%, #a78bfa 70%, #f0abfc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ring-glow {
+    box-shadow:
+      0 0 0 1px rgb(34 211 238 / 0.25),
+      0 0 48px rgb(34 211 238 / 0.12);
+  }
+}
